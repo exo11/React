@@ -6,8 +6,8 @@ const now = new Date()
 function App() {
 
   return (
-  <Calendar date={now}/>
-)
+    <Calendar date={now}/>
+  )
 
 }
 

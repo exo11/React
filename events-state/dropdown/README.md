@@ -1,25 +1,16 @@
-Выпадающий список
-===
+# React + Vite
 
-Вам необходимо реализовать компоненты выпадающего списка.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Описание проекта
+Currently, two official plugins are available:
 
-![Выпадающий список](./assets/dropdown.png)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Реализуйте компонент `DropdownList`, аналогичный указанному на рисунке. Для позиционирования выпадающего списка воспользуйтесь контейнером с `position: relatvie`. Для простоты будем считать, что размер кнопки, при нажатии на которую показывается выпадающий список, фиксированный. Соответственно, вам не нужно через DOM API вычислять размеры и отступы.
+## React Compiler
 
-Структура компонентов:
-- `Dropdown` — содержит кнопку и `DropdownList`, внутри себя хранит состояние, показывать или нет выпадающий список;
-- `DropdownList` — содержит список `DropdownItem` и хранит информацию о текущем выбранном элементе.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Вам нужно:
-1. При клике на кнопку показывать и скрывать выпадающее меню.
-1. Отрисовывать список на базе массива, хранящегося в памяти, через `map`.
-1. Подсвечивать выбранный элемент в списке, сделайте это на базе inline-стилей.
+## Expanding the ESLint configuration
 
-Подглядеть реализацию показа и сворачивания на чистом JS и CSS вы можете в исходниках, расположенных в этом же каталоге.
-
-Вы можете реализовать эту задачу как с использованием functional компонентов, так и на базе class-based компонентов.
-
-Но мы рекомендуем functional.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
