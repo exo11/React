@@ -1,44 +1,73 @@
-Менеджер фото
-===
+# React + TypeScript + Vite
 
-Вы решили модернизировать один из старых проектов и переписать его в виде React-компонентов:
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![Менеджер фото](./assets/image.png)
+Currently, two official plugins are available:
 
-## Интерфейс Менеджера фото
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-При клике на области «Click to select» должно появляться стандартное окно выбора файлов операционной системы, в котором пользователь может выбрать один или несколько файлов изображений (image/*).
+## React Compiler
 
-После выбора файлов они автоматически загружаются и отображаются в виде preview фиксированного размера (нижний блок). Для отображения используйте DataURL. Новые файлы должны добавляться, а не заменять предыдущие.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-При клике на крестик, изображение и все связанные с ним данные должны удаляться.
+## Expanding the ESLint configuration
 
-Важно: Drag & Drop реализовывать не нужно.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Подсказки
-
-1. Разместите с помощью CSS блок "Click to select" над `<input type="file" />` и установите этому блоку `pointer-events: none;`, чтобы вызывать окошко выбора файлов при клике.
-1. Используйте следующую заготовку для получения DataUrl:
 ```js
-const fileToDataUrl = file => {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-  
-    fileReader.addEventListener('load', evt => {
-      resolve(evt.currentTarget.result);
-    });
-    
-    fileReader.addEventListener('error', evt => {
-      reject(new Error(evt.currentTarget.error));
-    });
-    
-    fileReader.readAsDataURL(file);
-  });
-}
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-const handleSelect = async (evt) => {
-    const files = [...evt.target.files];
-    const urls = await Promise.all(files.map(o => fileToDataUrl(o)));
-    // У вас в массиве - dataUrl, можете использовать в качестве значения атрибута src тега img
-}
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
