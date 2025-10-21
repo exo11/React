@@ -1,15 +1,16 @@
-Декомпозиция
-===
+# React + Vite
 
-Вы работаете в стартапе, который решил тягаться с самим Яндексом в части предоставления контента. Это, конечно же, шутка, но задача нешуточная.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Вам принесли дизайн-макет, похожий на этот:
+Currently, two official plugins are available:
 
-![](./assets/decomposition.png)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Что вам нужно сделать:
+## React Compiler
 
-1. Разбейте весь интерфейс на компоненты и в файле каждого компонента напишите буквально одну строку комментария, за что данный компонент отвечает. Можете использовать формат JSDoc, детали про него можно посмотреть по [ссылке](https://react-styleguidist.js.org/docs/documenting/). Также рекомендуем [статью](https://medium.com/@antonkrinitsyn/jsdoc-react-5e6c530880a0) на тему JSDoc.
-1. Постарайтесь повторяющиеся компоненты сделать настраемыми за счёт `props`. Допустим, у каждой новости в списке новостей: иконка, текст и ссылка.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Функциональность и стилизацию реализовывать не нужно, достаточно базового оформления, чтобы видно было все блоки.
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
