@@ -1,64 +1,73 @@
-Анонимный чат
-===
+# React + TypeScript + Vite
 
-Вам необходимо реализовать абсолютно анонимный чат, хотя такого, конечно, не бывает ☺, в который сможет отправлять сообщения любой желающий.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Но есть важное требование: если вы даже открыли другую вкладку в браузере, написание всё равно должно идти с вашего аккаунта.
+Currently, two official plugins are available:
 
-Backend вы можете взять готовый из каталога `backend`.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-![Chat](./assets/chat.png)
+## React Compiler
 
-## Общая механика
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-При создании компонента создаётся интервал или таймаут и делается периодический опрос сервера в виде http-запроса GET на адрес http://localhost:7070/messages?from={id}, где id — идентификатор последнего полученного сообщения при первоначальной загрузке — 0. Временной интервал предложите сами.
+## Expanding the ESLint configuration
 
-Формат присылаемых данных:
-```json
-[
-    {
-        "id": 1,
-        "userId": "5f2d9da0-f624-4309-a598-8ba35d6c4bb6",
-        "content": "Какая сейчас погода за окном?"
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
     },
-    {
-        "id": 2,
-        "userId": "5f2d9da0-f624-4309-a598-8ba35d6c4bb6",
-        "content": "К сожалению, я не знаю ответа на этот вопрос"
-    }
-]
+  },
+])
 ```
-Где userId — уникальный идентификатор анонимного пользователя. Подумайте, как его сгенерировать и где хранить. Если не придумали — прочитайте спойлеры.
 
-Полученные данные отображаются в виде блоков с возможностью различного выравнивания:
-* ваши — справа;
-* не ваши — слева.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Ваши или не ваши вы определяете путём сравнения своего userId и того, что в сообщении.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Добавление:
-1. Вы заполняете форму и нажимаете кнопку «Добавить».
-1. Выполняется http-запрос POST на адрес http://localhost:7070/messages, в теле запроса передаётся следующий JSON:
-```json
-{
-    "id": 0,
-    "userId": "5f2d9da0-f624-4309-a598-8ba35d6c4bb6",
-    "content": "То, что было введено в поле ввода"
-}
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-3. После чего ждёте, пока не произойдёт получение данных по интервалу. Подумайте, как сделать ожидание комфортным для пользователя и как решают эту проблему существующие чаты.
-
-<details>
-  <summary>Спойлеры</summary>
-  
-  Добиться уникальности анонимов можно, просто записав в local/sessionStorage случайно сгенерированный ID: nanoid, uuid. И использовать его для отправки и получения данных.
-
-  Подумайте, какие уязвимости в безопасности создаёт подобная схема и возможна ли отправка сообщений от лица другого пользователя.
-
-  Подумайте над тем, как это можно предотвратить.
-</details>
-
-## Advanced
-
-1. Попробуйте раскрашивать сообщения от разных пользователей в разные цвета.
-1. Попробуйте реализовать авто-скроллинг до последнего сообщения.

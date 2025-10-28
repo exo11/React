@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: monospace;
+}
+
+.time-form, .watch-container {
+  width: 800px;
+}
+
+.watch-wrapper {
+  margin-top: 30px;
+  padding: 5px 20px 10px 20px;
+  margin-left: 20px;
+  position: relative;
+}
+
+.watch-wrapper button {
+  position: absolute;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  top: 40px;
+  right: -12px;
+  background-color: #ffffff;
+}
+
+.watch {
+  min-height: 12em;
+  min-width: 12em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  background-image: url("../image/clock.png");
+  background-position: center center;
+  background-size: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+    inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
+    inset 0 15px 15px rgba(0, 0, 0, 0.3);
+   transition: all ease 0.2s;
+}
+
+.watch:before {
+  content: "";
+  height: 0.75rem;
+  width: 0.75rem;
+  background-color: #888888;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  z-index: 1000;
+  transition: all ease 0.2s;
+}
+
+.hour,
+.minute,
+.second {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.hour {
+  height: 7em;
+}
+
+.hour:before {
+  content: "";
+  height: 50%;
+  width: 6px;
+  background-color: #888888;
+  border-radius: 6px;
+}
+
+.minute {
+  height: 8em;
+}
+
+.minute:before {
+  content: "";
+  height: 50%;
+  width: 4px;
+  background-color: #888888;
+  border-radius: 4px;
+}
+
+.second {
+  height: 9em;
+}
+
+.second:before {
+  content: "";
+  height: 60%;
+  width: 2px;
+  background-color:  rgb(55, 192, 197);
+  border-radius: 2px;
+}
+
+.material-icons {
+  color: rgb(55, 192, 197);
+  margin-left: -2px;
+  margin-top: 1px;
+  pointer-events: none;
+}

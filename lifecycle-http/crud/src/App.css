@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.material-icons {
+  pointer-events: none;
+  font-size: 34px;
+  margin-top: 3px;
+} 
+
+.btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  color:rgb(144, 221, 221);
+  background-color: #ffffff;
+  border: 1px solid #999595;
+  cursor: pointer;
+}
+
+.cont {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.title-cont {
+  display: flex;
+}
+
+.title-cont h1 {
+  font-size: 55px;
+  color: #999595;
+}
+
+.title-btn {
+  margin-top: 55px;
+  margin-left: 15px;
+}
+
+.cards-cont {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+
+.card {
+  width: 230px;
+  height: 200px;
+  border: 1px solid #999595;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card-btn {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+}
+
+.form-cont {
+  text-align: left;
+}
+
+.form-cont form {
+  position: relative;
+}
+
+.form-cont textarea {
+  width: 300px;
+  height: 150px;
+  border: 1px solid #999595;
+  border-radius: 5px;
+  resize: none;
+  padding: 10px;
+}
+
+.form-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 260px;
+}
+
+
+
+

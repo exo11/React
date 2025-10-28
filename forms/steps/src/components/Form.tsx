@@ -14,7 +14,7 @@ function Form({onSubmit}: {onSubmit: (evt: FormEvent) => void}) {
       <Input 
         label="Пройдено КМ" 
         name="distance" 
-        pattern="^\d+$"
+        pattern="^(+|-)?\d+$"
       /> 
       <button type="submit" form="steps">ОК</button>
     </form>
