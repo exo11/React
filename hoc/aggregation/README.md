@@ -1,47 +1,73 @@
-Агрегация данных для таблиц
-===
+# React + TypeScript + Vite
 
-Есть набор из трёх компонентов, которые выводят табличные данные: 
-- с группировкой по месяцам за текущий год, 
-- с группировкой по годам, 
-- с сортировкой по убыванию. 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![Aggregation](./assets/aggregation.png)
+Currently, two official plugins are available:
 
-К сожалению, эти компоненты работают только с подготовленными данными, а API сервера статистики возвращает нам сырые данные — неотсортированные и несгруппированные.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Данные запрашиваются один раз (https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hoc/aggregation/data/data.json) — после загрузки страницы.
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
 ```js
-{
-  "list": [
-    {"date": "2018-01-13", "amount": 10},
-    {"date": "2018-02-13", "amount": 9},
-    {"date": "2018-01-09", "amount": 5},
-    {"date": "2017-12-14", "amount": 14},
-    {"date": "2018-03-01", "amount": 13},
-    //...
-  ]
-}
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## Реализация
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Обернуть компоненты таблиц в HOC, который бы производил над данными операции, приводящие их к нужному виду.
-Также данные, которые группируются по дате, должны быть отсортированы по ней.
-
-Компонент `MonthTable` ожидает данные в свойство `list` в следующем формате: 
 ```js
-[{month: "Jan", amount: 100}, ...]
-```
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Компонент `YearTable` ожидает данные в свойство `list` в следующем формате: 
-```js
-[{year: 2018, amount: 100}, ...]
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-Компонент `SortTable` ожидает данные в свойство `list` в следующем формате: 
-```js
-[{date: "2017-12-14", amount: 14}, ...]
-```
-
-Воспользуйтесь готовым файлом `App.js` и стилями `css/index.css` из каталога в качестве отправной точки. Замените ими те, что создаются в create-react-app.
