@@ -31,32 +31,32 @@ users.set("vasya", {
   login: "vasya",
   name: "Vasya",
   password: bcrypt.hashSync("password", rounds),
-  avatar: "https://i.pravatar.cc/40",
+  avatar: "../image/avatar.jpg",
 });
 
 const news = [
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/nature",
+    image: "../image/news.jpg",
     content: faker.lorem.paragraph(),
   },
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/arch",
+    image: "../image/news.jpg",
     content: faker.lorem.paragraph(),
   },
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/tech",
+    image: "../image/news.jpg",
     content: faker.lorem.paragraph(),
   },
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/sepia",
+    image: "../image/news.jpg",
     content: faker.lorem.paragraph(),
   },
 ];

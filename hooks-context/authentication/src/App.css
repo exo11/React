@@ -1,0 +1,139 @@
+* {
+  font-family: monospace;
+} 
+
+#root {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0ef;
+  margin-bottom: 20px;
+}
+
+nav form {
+  margin-right: 20px;
+}
+
+nav h4 {
+  font-size: 25px;
+  margin: 20px 0 20px 20px;
+}
+
+nav input {
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 15px;
+  border: 1px solid grey;
+  outline: none;
+}
+
+nav .login {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid rgb(126, 218, 224);
+  color:#51c8c8;;
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav .logout-container {
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
+}
+
+nav p {
+  margin-right: 10px;
+  font-size: 15px;
+} 
+
+nav .avatar-wrapper {
+ width: 55px;
+ height: 55px;
+ border-radius: 50%;
+ background-color: #ffffff;
+ margin-right: 10px;
+ overflow: hidden;
+}
+
+nav img {
+  width: 100%;
+}
+
+nav .logout {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid rgb(224, 126, 139);
+  color:rgb(224, 126, 139);
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  width: 800px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 0 auto;
+}
+
+.plug {
+  background-color: #f0f0ef;
+  text-align: left;
+  padding-left: 50px;
+  width: 100%;
+}
+
+.plug h1 {
+  font-size: 50px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  padding-top: 40px;
+}
+
+.plug h3 {
+  font-size: 25px;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+.card-wrapper {
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 350px;
+  border: 1px solid rgb(219, 215, 215);
+  height: 100%;
+  text-align: left;
+  border-radius: 0 0 10px 10px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card h4 {
+  text-transform: uppercase;
+  font-size: 17px;
+  margin: 0;
+  margin-top: -5px;
+  padding: 15px 20px;
+}
+
+.card p {
+  padding: 0 20px;
+  margin-top: 0;
+  color:#3c3c3c;
+  text-transform: uppercase;
+}

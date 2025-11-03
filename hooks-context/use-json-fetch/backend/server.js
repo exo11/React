@@ -26,7 +26,7 @@ app.get("/error", async (req, res) => {
 app.get("/loading", async (req, res) => {
   await new Promise((resolve) => {
     setTimeout(() => {
-      resolve();
+      resolve();cd
     }, 5000);
   });
   res.send(JSON.stringify({ status: "ok" }));
