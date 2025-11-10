@@ -31,32 +31,32 @@ users.set("vasya", {
   login: "vasya",
   name: "Vasya",
   password: bcrypt.hashSync("password", rounds),
-  avatar: "https://i.pravatar.cc/40",
+  avatar: "../src/assets/avatar.jpg",
 });
 
 const news = [
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/nature",
+    image: "../src/assets/news-1.jpg",
     content: faker.lorem.paragraph(),
   },
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/arch",
+    image: "../src/assets/news-2.jpg",
     content: faker.lorem.paragraph(),
   },
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/tech",
+    image: "../src/assets/news-3.jpg",
     content: faker.lorem.paragraph(),
   },
   {
     id: uuid.v4(),
     title: faker.lorem.words(),
-    image: "https://placeimg.com/640/480/sepia",
+    image: "../src/assets/news-4.jpg",
     content: faker.lorem.paragraph(),
   },
 ];
@@ -117,17 +117,6 @@ app.get("/private/me", async (req, res) => {
 app.get("/private/news", async (req, res) => {
   try {
     res.send(JSON.stringify(news));
-  } catch (error) {
-    res.status(500).send(JSON.stringify({ message: "Server internal error" }));
-  }
-});
-app.get("/private/news/:id", async (req, res) => {
-  try {
-    const [item] = news.filter((o) => o.id === req.params.id);
-    if (item === undefined) {
-      return res.status(404).send(JSON.stringify({ message: "not found" }));
-    }
-    res.send(JSON.stringify(item));
   } catch (error) {
     res.status(500).send(JSON.stringify({ message: "Server internal error" }));
   }

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+  font-family: monospace;
+  text-decoration: none;
+}
+
+.material-icons {
+  font-size: 40px;
+  color: #a09c9f;
+  width: 100%;
+  pointer-events: none;
+}
+
+#root {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: end;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  padding: 8px;
+  margin: 0 auto;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid rgb(224, 126, 139);
+  color:rgb(224, 126, 139);
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.container .post {
+  border: 1px solid #dbd8d8;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-top: 20px;
+  color: #2d2d2d;
+  text-align: left;
+  font-size: 15px;
+}
+
+.create-container {
+  margin-top: 50px;
+}
+
+.create-container form {
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  border-radius: 5px ;
+  border: 1px solid #c6c6c6;
+  position: relative;
+}
+
+.create-container textarea {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  resize: none;
+  outline: none;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.create-container .toolbar {
+ border-top: 1px solid #c6c6c6;
+ box-shadow: none;
+ border-radius: 0 0 5px 5px;
+}
+
+.create-close {
+  position: absolute;
+  width: 40px;
+  top: -40px;
+  right: -40px;
+}
+
+.edit-close {
+  position: absolute;
+  width: 50px;
+  top: -40px;
+  right: -40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.user-container {
+  display: flex;
+}
+
+.avatar-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #d0cfcf;
+  margin-right: 10px;
+}
+
+.avatar-wrapper img {
+  width: 100%;
+}
+
+.user-title {
+  margin-bottom: 0;
+  color: rgb(89, 130, 136);
+}
+
+.post-time {
+  margin-top: 0;
+  color: rgb(98, 98, 98);
+  text-transform: uppercase;
+  font-size: 12px;
+  word-spacing: -3px;
+}
+
+.post-wrapper {
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  border-radius: 5px ;
+  border: 1px solid #c6c6c6;
+  margin-top: 10px;
+}
+
+.post-wrapper .post {
+  border: none;
+  margin-top: 0;
+}
+
+.change-btn {
+  border-color: #85bdbd;
+  color: #85bdbd;
+}
+
+.post-wrapper .toolbar {
+  border-top: 1px solid #c6c6c6;
+  box-shadow: none;
+  border-radius: 0 0 5px 5px;
+}
