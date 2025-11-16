@@ -1,0 +1,118 @@
+* {
+  font-family: monospace;
+}
+
+p {
+  margin: 0;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+form {
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+input {
+  height: 37px;
+  width: 300px;
+  margin-right: 2px;
+  margin-bottom: 10px;
+  outline: none;
+  font-size: 17px;
+  padding: 0 7px;
+  border-radius: 5px;
+  border: 1px solid #a6a6a6;
+  box-sizing: border-box;
+}
+
+.image-input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 150px;
+  font-size: 17px;
+  border: 1px solid #a6a6a6;
+  color: #ffffff;
+  background-color: rgb(129, 228, 245);
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-left: 1px;
+}
+
+.products-container {
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 200px;
+  margin: 20px;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+}
+
+.price-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.discount-price {
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.price {
+  margin-top: 3px;
+  color: #8a8888;
+  text-decoration: line-through;
+}
+
+.card h5 {
+  margin-top: 5px;
+  text-align: left;
+}
+
+.card a {
+  font-size: 25px;
+  text-decoration: none;
+  color: rgb(156, 156, 232);
+  text-transform: uppercase;
+}
+
+.discount-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 0 0 5px 5px;
+  color:#ffffff;
+  position:absolute;
+  background-color: #dd1b24;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -1px;
+  left: 10px;
+  opacity: .9;
+}
+.discount-wrapper p {
+  margin-top: -5px;
+  font-size: 15px;
+}

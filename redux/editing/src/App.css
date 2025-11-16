@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+  font-family: monospace;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.material-icons {
+  width: 24px;
+  pointer-events: none;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+form {
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+input {
+  height: 37px;
+  width: 200px;
+  margin-right: 2px;
+  outline: none;
+  font-size: 17px;
+  padding: 0 7px;
+  border-radius: 5px;
+  border: 1px solid #a6a6a6;
+}
+
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid rgb(224, 126, 139);
+  color:rgb(224, 126, 139);
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-left: 1px;
+}
+
+.filter-container {
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 5px auto 20px auto;
+}
+
+.filter-container input {
+  width: 474px;
+}
+
+ul {
+  padding: 0 50px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+li div {
+  display: flex;
+  align-items: center;
+}
+
+.marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(224, 126, 139);
+  margin-right: 10px;
+}
+
+li p {
+  margin: 15px 0;
+}
+
+.small-btn {
+  padding: 5px 5px 2px 5px;
+}

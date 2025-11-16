@@ -1,0 +1,5 @@
+export const ADD = 'ADD_SERVICE'
+export const EDIT = 'EDIT_SERVICE'
+export const REMOVE = 'REMOVE_SERVICE'
+export const CHANGE = 'CHANGE_VALUE_SERVICE'
+export const FILTER = 'FILTER_SERVICE'
