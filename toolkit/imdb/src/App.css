@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+  font-family: monospace;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.material-icons {
+  width: 24px;
+  pointer-events: none;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.favourites-container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3e3e3e;
+  border-radius: 5px;
+  padding: 10px 20px;
+} 
+
+.favourites-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffe5a9;
+  font-size: 22px;
+}
+
+.favourites-link .material-icons {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+form {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+input {
+  height: 42px;
+  width: 300px;
+  margin-right: 2px;
+  outline: none;
+  font-size: 17px;
+  padding: 0 7px;
+  border-radius: 5px;
+  border: 1px solid #a6a6a6;
+}
+
+.btn {
+  padding: 10px 30px;
+  font-size: 18px;
+  border: 1px solid #a6a6a6;
+  color: black;
+  background-color: #ffe5a9;;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-left: 1px;
+}
+
+.movie-wrapper {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 940px;
+  margin: 0 auto;
+}
+
+.card {
+  margin: 10px 0;
+  width: 300px;
+  text-decoration: none;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: black;
+}
+
+.favourites-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 45px;
+  border-radius: 50%;
+  height: 45px;
+  background-color: white;
+  border: none;
+  cursor:pointer;
+}
+
+.favourites-btn .material-icons {
+  color:#3e3e3e;
+  margin-top: 3px;
+} 
+
+.active .material-icons {
+  color: #ffe5a9;
+}
+
+.big-card {
+  display: flex;
+  width: fit-content;
+  margin: 80px auto;
+  border: 1px solid #a6a6a6;
+  border-radius: 10px;
+  position: relative;
+}
+
+.big-card img {
+  border-radius: 10px 0 0 10px;
+}
+
+.big-card-body {
+  padding: 40px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.big-card h3 {
+  text-transform: uppercase;
+  color: black;
+  margin: 0;
+}
+
+.big-card-close {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  color: black;
+  width: 80px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.big-card-close .material-icons{
+  font-size: 50px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.loading {
+  font-size: 50px;
+  margin-top: 200px;
+}
+
+.error-container h1 {
+  font-size: 80px;
+  color: rgb(224, 126, 139);
+}
+
+.error-container h2 {
+  font-size: 30px;
+}
