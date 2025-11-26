@@ -1,19 +1,16 @@
-Список и детали
-===
+# React + Vite
 
-Напишите проект, использующий React Router и Redux Observable, который удовлетворяет следующим условиям:
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-На главной странице показывается список услуг, редактирование не нужно, достаточно просто ссылок — данные загружаются методом GET на http://localhost:7070/api/services.
+Currently, two official plugins are available:
 
-При переходе по ссылке (/:id/details), загружаются детали услуги — GET на http://locahost:7070/api/services/:id.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-При загрузке должен отображаться индикатор загрузки, что на странице списка, что на странице деталей:
+## React Compiler
 
-![](./assets/spinner.png)
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-При ошибке должно показываться сообщение об ошибке и кнопка «Повторить запрос», при нажатии на которую осуществляется попытка снова выполнить запрос с индикатором загрузки и т. д.:
+## Expanding the ESLint configuration
 
-![](./assets/retry.png)
-
-Готовый бэкенд расположен в каталоге `backend`.
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

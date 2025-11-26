@@ -1,0 +1,56 @@
+* {
+  font-family: monospace;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+a {
+  text-transform: uppercase;
+  font-size: 25px;
+  color: grey;
+  display: block;
+  margin-top: 30px;
+}
+
+h1 {
+  font-size: 50px;
+  color:rgb(46, 127, 162);
+  margin-top: 200px;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 25px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.error {
+  background-color: pink;
+  width: fit-content;
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px 30px;
+  color: red;
+}
+
+button {
+  font-size: 20px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 10px 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}

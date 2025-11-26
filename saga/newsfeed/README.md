@@ -1,38 +1,73 @@
-Лента новостей
-===
+# React + TypeScript + Vite
 
-Вам необходимо реализовать некий аналог подгрузки новостей ВКонтакте.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-При загрузке страницы грузятся первые пять новостей. На картинке только две, чтобы уместилось:
+Currently, two official plugins are available:
 
-![](./assets/load-more.png)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-При нажатии на кнопку «К предыдущим записям» происходит дозагрузка ещё пять:
+## React Compiler
 
-![](./assets/loading.png)
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-При возникновении ошибок пользователь не уведомляется, а происходят повторные попытки дозагрузки каждые 3 секунды.
+## Expanding the ESLint configuration
 
-При исчерпании новостей сервер вернёт пустой массив, либо количество элементов в массиве будет меньше пяти, снизу под карточками не отображаются ни кнопки, ни индикатор загрузки:
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-![](./assets/finish.png)
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-Для первоначальной загрузки новостей используйте следующий запрос:
-GET http://localhost:7070/api/news.
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-Для загрузки новостей, начиная с определённой, используйте следующий запрос, где X — ID последней загруженной новости:
-GET http://localhost:7070/api/news?lastSeenId=X.
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-Серверная часть расположена в каталоге `backend`.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Убедитесь, что вы правильно парсите реальные данные и максимально точно отображаете вид карточек.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Как минимум должны отображаться:
-1. Время в формате день, месяц и часы: минуты.
-1. Текст.
-1. Количество лайков.
-1. Количество комментариев.
-1. Количество репостов.
-1. Количество просмотров.
-
-Если научитесь отображать ещё и картинки со ссылками — будет супер!
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
